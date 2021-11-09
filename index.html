@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/app/scss/main.scss" />
+    <script defer src="/app/js/script.js" type="module"></script>
+    <title>Client Side Form Validation</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form" id="form">
+        <h1 class="heading-1">Register With Us!</h1>
+        <div class="form-control">
+          <label for="username">username</label>
+          <input type="text" id="username" placeholder="Enter Username" />
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <label for="email">email</label>
+          <input type="text" id="email" placeholder="Enter Username" />
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <label for="password">password</label>
+          <input type="password" id="password" placeholder="Enter Username" />
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <label for="password">confirm password</label>
+          <input
+            type="password"
+            id="password-confirm"
+            placeholder="Enter Username"
+          />
+          <small>Error Message</small>
+        </div>
+        <button class="btn">
+          Register <i class="fas fa-check btn__icon"></i>
+        </button>
+      </form>
+    </div>
+    <div class="rules">
+      <h3 class="heading-3">Rules for username:</h3>
+      <ul>
+        <li>Only contains alphanumeric characters, underscore and dot.</li>
+        <li>Underscore and dot can't be at the end or start of a username.</li>
+        <li>Underscore and dot can't be next to each other.</li>
+        <li>Underscore or dot can't be used multiple times in a row.</li>
+        <li>Number of characters must be between 3 to 15.</li>
+      </ul>
+    </div>
+  </body>
+</html>
