@@ -5,6 +5,9 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const passwordConfirm = document.getElementById("password-confirm");
 
+// Empty form array
+let empty = [];
+
 // Word capitalizer
 const capitalizer = (str) =>
     str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -12,7 +15,6 @@ const capitalizer = (str) =>
 // Render Error function
 const showError = (input, message = "") => {
     const inputParent = input.parentElement;
-    console.log(inputParent);
     const errorMessage = inputParent.querySelector("small");
     errorMessage.innerText = message;
     inputParent.className = "form-control form-control--error";
@@ -20,7 +22,6 @@ const showError = (input, message = "") => {
 // Render Suceess Message
 const showSuccess = (input) => {
     const inputParent = input.parentElement;
-    console.log(inputParent);
     inputParent.className = "form-control form-control--success";
 };
 // Chech email validation with regex
@@ -47,9 +48,13 @@ function isValidUsername(usernameInput) {
 // Check for not being empty
 const isRequired = function (inputArray) {
     inputArray.forEach((input) => {
-        if (input.value.trim() === "")
+        if (input.value.trim() === "" || !input.value) {
             showError(input, `${capitalizer(input.id)} is Required.`);
-        else showSuccess(input);
+            empty.push(false);
+        } else {
+            showSuccess(input);
+            empty.push(true);
+        }
     });
 };
 
@@ -71,7 +76,9 @@ form.addEventListener("submit", function (eventPeram) {
     eventPeram.preventDefault();
 
     isRequired([username, email, password, passwordConfirm]);
-    isEqual(password, passwordConfirm);
-    isValidUsername(username);
-    isValidEmail(email);
+    if (empty.every((value) => value === true)) {
+        isEqual(password, passwordConfirm);
+        isValidUsername(username);
+        isValidEmail(email);
+    }
 });

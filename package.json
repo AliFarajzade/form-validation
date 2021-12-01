@@ -1,14 +1,13 @@
 {
-    "name": "project-name",
+    "name": "simple-form-validation",
     "version": "1.0.0",
-    "description": "",
     "default": "index.html",
     "browserslist": "last 10 versions",
     "scripts": {
         "start": "parcel index.html",
         "build": "parcel build ./index.html"
     },
-    "author": "Ali",
+    "author": "Ali Farajzade",
     "license": "ISC",
     "devDependencies": {
         "@parcel/transformer-sass": "^2.0.1",
